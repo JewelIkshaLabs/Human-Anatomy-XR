@@ -1,18 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OpenAI_API;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
+using Newtonsoft.Json;
+using System.IO;
+using System;
+using Newtonsoft.Json.Linq;
 
 public class OpenAIChatManager : MonoBehaviour
 {
     private OpenAIAPI api;
     private List<ChatMessage> messages;
-    // Start is called before the first frame update
+
     void Start()
     {
-        api = new OpenAIAPI("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"); 
+        // Authentication 
+
+        string filePath = Application.dataPath + "/config.json";
+        string json = File.ReadAllText(filePath);
+        JObject data = JObject.Parse(json);
+        string apiKey = data["ApiKey"].ToString();
+
+        api = new OpenAIAPI(apiKey); 
     }
 
     public void StartConversation()
