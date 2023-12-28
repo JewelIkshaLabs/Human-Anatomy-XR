@@ -751,11 +751,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!224 &726320691 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-  m_PrefabInstance: {fileID: 3453834136005615012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &825872076
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,8 +982,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 726320691}
+  m_Children: []
   m_Father: {fileID: 53112581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1017,7 +1011,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 300, y: 200}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 0, y: 40}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &917156424
@@ -1360,6 +1354,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parts: []
+  _categories: []
+  _categoryGameObjects: []
+  _categoryPrefab: {fileID: 822377975050505708, guid: 508747f2e7f912640b4fa74d9fb498f5, type: 3}
+  _buttonPrefab: {fileID: 5105681504729826668, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
+  _contentTransform: {fileID: 917156422}
 --- !u!1001 &1502149757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2026,7 +2025,7 @@ GameObject:
   - component: {fileID: 8824688784494205675}
   - component: {fileID: 55845691927682984}
   m_Layer: 0
-  m_Name: quad
+  m_Name: quad_muscle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2792,103 +2791,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &3453834136005615012
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 917156422}
-    m_Modifications:
-    - target: {fileID: 5105681504729826668, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_Name
-      value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -130
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185851565260631707, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 444809b694c085d47b55ea1e3955dfa9, type: 3}
 --- !u!1 &3593090657904582768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,7 +2818,7 @@ GameObject:
   - component: {fileID: 4312074905607971113}
   - component: {fileID: 2199450120102539622}
   m_Layer: 0
-  m_Name: Patella
+  m_Name: Patella_bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3338,7 +3240,7 @@ GameObject:
   - component: {fileID: 3117985019854483054}
   - component: {fileID: 3179578049573595647}
   m_Layer: 0
-  m_Name: hamstring_lat
+  m_Name: hamstring_lat_muscle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3591,7 +3493,7 @@ GameObject:
   - component: {fileID: 6134678665895489471}
   - component: {fileID: 6357307181527898127}
   m_Layer: 0
-  m_Name: Tibia_Cartilage
+  m_Name: Tibia_cartilage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3671,7 +3573,7 @@ GameObject:
   - component: {fileID: 4055490777284111009}
   - component: {fileID: 3117973770386279638}
   m_Layer: 0
-  m_Name: Femur_Cartilage
+  m_Name: Femur_cartilage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3845,7 +3747,7 @@ GameObject:
   - component: {fileID: 1710047642520842235}
   - component: {fileID: 4190445634491473475}
   m_Layer: 0
-  m_Name: Femur
+  m_Name: Femur_bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3894,7 +3796,7 @@ GameObject:
   - component: {fileID: 4040116158455245926}
   - component: {fileID: 4800050860907134049}
   m_Layer: 0
-  m_Name: Tibia
+  m_Name: Tibia_bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4069,7 +3971,7 @@ GameObject:
   - component: {fileID: 4703066484655663700}
   - component: {fileID: 8640310383926671885}
   m_Layer: 0
-  m_Name: Patella_Cartilage
+  m_Name: Patella_cartilage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4134,7 +4036,7 @@ GameObject:
   - component: {fileID: 4063664425077072687}
   - component: {fileID: 346399117113625493}
   m_Layer: 0
-  m_Name: hamstring_med
+  m_Name: hamstring_med_muscle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4532,7 +4434,7 @@ GameObject:
   - component: {fileID: 4270735715387316195}
   - component: {fileID: 7425011281805530823}
   m_Layer: 0
-  m_Name: Fibula
+  m_Name: Fibula_bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
