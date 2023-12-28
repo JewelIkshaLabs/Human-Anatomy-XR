@@ -4,6 +4,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using TMPro;
 
 public class PartsLister : MonoBehaviour
 {
@@ -49,6 +51,8 @@ public class PartsLister : MonoBehaviour
             cat.name = kvp.Key;
             cat.transform.parent = parent;
             button.name = kvp.Key;
+            TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = kvp.Key;
             button.transform.parent = contentTransform;
             _categoryGameObjects.Add(cat);
         }
