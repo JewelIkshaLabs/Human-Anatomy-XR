@@ -1260,6 +1260,50 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1037916563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037916565}
+  - component: {fileID: 1037916564}
+  m_Layer: 0
+  m_Name: OutlineSelection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1037916564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037916563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be11e94e12817e446a1071558564c373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1037916565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037916563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.410794, y: 4.65546, z: -4.737142}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069452136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,7 +2153,7 @@ GameObject:
   - component: {fileID: 8146177360954337120}
   m_Layer: 0
   m_Name: quadriceps_tendon
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2191,7 +2235,7 @@ GameObject:
   - component: {fileID: 8824688784494205676}
   m_Layer: 0
   m_Name: quad_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2844,7 +2888,7 @@ GameObject:
   - component: {fileID: 4600986819223911645}
   m_Layer: 0
   m_Name: medial_collateral_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2988,7 +3032,7 @@ GameObject:
   - component: {fileID: 4312074905607971114}
   m_Layer: 0
   m_Name: Patella_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3146,7 +3190,7 @@ GameObject:
   - component: {fileID: 6385419859005826882}
   m_Layer: 0
   m_Name: patellar_tendon
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3165,7 +3209,7 @@ GameObject:
   - component: {fileID: 4181880224446372359}
   m_Layer: 0
   m_Name: lateral_collateral_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3506,7 +3550,7 @@ GameObject:
   - component: {fileID: 4781467408988192627}
   m_Layer: 0
   m_Name: hamstring_lat_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3791,7 +3835,7 @@ GameObject:
   - component: {fileID: 6357307181527898128}
   m_Layer: 0
   m_Name: Tibia_cartilage
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3873,7 +3917,7 @@ GameObject:
   - component: {fileID: 6144665647584924432}
   m_Layer: 0
   m_Name: Femur_cartilage
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4139,7 +4183,7 @@ GameObject:
   - component: {fileID: 6740089340780472906}
   m_Layer: 0
   m_Name: Femur_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4220,7 +4264,7 @@ GameObject:
   - component: {fileID: 7222566470945087194}
   m_Layer: 0
   m_Name: Tibia_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4427,7 +4471,7 @@ GameObject:
   - component: {fileID: 8640310383926671886}
   m_Layer: 0
   m_Name: Patella_cartilage
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4494,7 +4538,7 @@ GameObject:
   - component: {fileID: 7767072971960338528}
   m_Layer: 0
   m_Name: hamstring_med_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5014,7 +5058,7 @@ GameObject:
   - component: {fileID: 9148661219042331512}
   m_Layer: 0
   m_Name: Fibula_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5064,3 +5108,4 @@ SceneRoots:
   - {fileID: 322939693}
   - {fileID: 1069452138}
   - {fileID: 413881536}
+  - {fileID: 1037916565}
