@@ -9,14 +9,6 @@ public class PartsLister : MonoBehaviour
 {
     public List<GameObject> _parts = new List<GameObject>();
     public Dictionary<string, string> _categoriesMap = new Dictionary<string, string>();
-    Dictionary<string, List<string>> _jsonData = new Dictionary<string, List<string>>()
-    {
-        { "bone", new List<string> { "Femur_bone", "Fibula_bone", "Patella_bone", "Tibia_bone" } },
-        { "cartilage", new List<string> { "Femur_cartilage", "Patella_cartilage", "Tibia_cartilage" } },
-        { "muscle", new List<string> { "hamstring_lat_muscle", "hamstring_med_muscle", "quad_muscle" } },
-        { "ligament", new List<string> { "lateral_collateral_ligament", "medial_collateral_ligament" } },
-        { "tendon", new List<string> { "patellar_tendon", "quadriceps_tendon" } }
-    };
     public List<string> _categories = new List<string>();
     public List<GameObject> _categoryGameObjects;
     public List<Sprite> buttonImages;
@@ -27,9 +19,9 @@ public class PartsLister : MonoBehaviour
     void Start()
     {
         ChildLister(_parts);
-        PopulateCategoriesFromJson(_jsonData, transform, _contentTransform);
+        PopulateCategoriesFromParts(_parts, transform, _contentTransform);
         // ConsoleOutput();
-        CreateGameObjects(_jsonData);
+        CreateGameObjects(_parts);
     }
 
     void ChildLister(List<GameObject> parts)
@@ -40,21 +32,33 @@ public class PartsLister : MonoBehaviour
         }
     }
 
-    void PopulateCategoriesFromJson(Dictionary<string, List<string>> jsonData, Transform parent, Transform contentTransform)
+    void PopulateCategoriesFromParts(List<GameObject> parts, Transform parent, Transform contentTransform)
     {
-        foreach(KeyValuePair<string, List<string>> kvp in jsonData)
+        HashSet<string> categories = new HashSet<string>();
+
+        foreach (GameObject part in parts)
         {
-            _categories.Add(kvp.Key);
+            string[] partNameSplit = part.name.Split('_');
+            if (partNameSplit.Length > 1)
+            {
+                string category = partNameSplit[partNameSplit.Length - 1]; // Get the last part of the name
+                categories.Add(category);
+            }
+        }
+
+        foreach (string category in categories)
+        {
             GameObject cat = Instantiate(_categoryPrefab);
             GameObject button = Instantiate(_buttonPrefab);
-            cat.name = kvp.Key;
+            cat.name = category;
             cat.transform.parent = parent;
-            button.name = kvp.Key;
-            foreach(Sprite buttonImage in buttonImages)
+            button.name = category;
+            foreach (Sprite buttonImage in buttonImages)
             {
-                if(buttonImage.name == kvp.Key)
+                if (buttonImage.name == category)
                 {
                     button.GetComponent<Image>().sprite = buttonImage;
+                    break;
                 }
             }
             button.transform.parent = contentTransform;
@@ -64,18 +68,18 @@ public class PartsLister : MonoBehaviour
 
     // Sorts the gameobjects into particular categories
 
-    void CreateGameObjects(Dictionary<string, List<string>> jsonData)
+    void CreateGameObjects(List<GameObject> parts)
     {
-        foreach(GameObject part in _parts)
+        foreach (GameObject part in parts)
         {
-            string searchValue = part.name;
-            string foundKey = jsonData.FirstOrDefault(x => x.Value.Contains(searchValue)).Key;
-            foreach(GameObject categoryGameObject in _categoryGameObjects)
+            string[] partNameSplit = part.name.Split('_');
+            if (partNameSplit.Length > 1)
             {
-                if(categoryGameObject.name == foundKey)
+                string category = partNameSplit[partNameSplit.Length - 1]; // Get the last part of the name
+                GameObject categoryGameObject = _categoryGameObjects.FirstOrDefault(cat => cat.name == category);
+                if (categoryGameObject != null)
                 {
                     part.transform.parent = categoryGameObject.transform;
-                    break;
                 }
             }
         }
