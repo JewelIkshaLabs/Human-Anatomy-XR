@@ -2342,7 +2342,7 @@ GameObject:
   - component: {fileID: 8838721554691911580}
   m_Layer: 0
   m_Name: trapezoid_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2773,7 +2773,7 @@ GameObject:
   - component: {fileID: 9070456942914463478}
   m_Layer: 0
   m_Name: teresminor_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3115,7 +3115,7 @@ GameObject:
   - component: {fileID: 6301669065080432397}
   m_Layer: 0
   m_Name: supraspinatus_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3287,7 +3287,7 @@ GameObject:
   - component: {fileID: 6223309778879086861}
   m_Layer: 0
   m_Name: humerus_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3372,7 +3372,7 @@ GameObject:
   - component: {fileID: 7784677332317013391}
   m_Layer: 0
   m_Name: subscapularis_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3649,7 +3649,7 @@ GameObject:
   - component: {fileID: 9205734711681764852}
   m_Layer: 0
   m_Name: muscle2_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3885,7 +3885,7 @@ GameObject:
   - component: {fileID: 8469672247509130077}
   m_Layer: 0
   m_Name: biceps_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4024,7 +4024,7 @@ GameObject:
   - component: {fileID: 3889461451461089566}
   m_Layer: 0
   m_Name: coracoacromial_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4110,7 +4110,7 @@ GameObject:
   - component: {fileID: 6916981343538236007}
   m_Layer: 0
   m_Name: scapula_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4830,7 +4830,7 @@ GameObject:
   - component: {fileID: 7987678195823456817}
   m_Layer: 0
   m_Name: ligament3_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4865,7 +4865,7 @@ GameObject:
   - component: {fileID: 8461899854894475513}
   m_Layer: 0
   m_Name: infraspinatus_muscle
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5148,7 +5148,7 @@ GameObject:
   - component: {fileID: 6329198706004894827}
   m_Layer: 0
   m_Name: acromioclavicularjoint_joint
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5447,7 +5447,7 @@ GameObject:
   - component: {fileID: 9150061498989278603}
   m_Layer: 0
   m_Name: ligament4_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5607,7 +5607,7 @@ GameObject:
   - component: {fileID: 7237191567967149536}
   m_Layer: 0
   m_Name: ligament2_ligament
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6655,7 +6655,7 @@ GameObject:
   - component: {fileID: 9033621505881259294}
   m_Layer: 0
   m_Name: ballandsocket_joint
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6726,7 +6726,7 @@ GameObject:
   - component: {fileID: 9120043642812365582}
   m_Layer: 0
   m_Name: clavicle_bone
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
