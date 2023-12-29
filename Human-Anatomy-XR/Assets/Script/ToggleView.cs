@@ -27,6 +27,11 @@ public class ToggleView : MonoBehaviour
        foreach (SkinnedMeshRenderer obj in objects)
        {
             obj.enabled = !obj.enabled;
+            MeshCollider meshCollider = obj.GetComponent<MeshCollider>();
+            if (meshCollider != null)
+            {
+                meshCollider.enabled = obj.enabled;
+            }
             ChangeColour(obj.enabled);
        }
        
