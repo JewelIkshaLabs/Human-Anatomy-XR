@@ -55,6 +55,8 @@ public class PartsLister : MonoBehaviour
             button.name = category;
             foreach (Sprite buttonImage in buttonImages)
             {
+                Debug.Log("Catergory : " +  category);
+                Debug.Log("ButtonImageName : " + buttonImage.name);
                 if (buttonImage.name == category)
                 {
                     button.GetComponent<Image>().sprite = buttonImage;

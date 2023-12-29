@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,18 +24,33 @@ public class ToggleView : MonoBehaviour
     public void Toggle()
     {
        GameObject category = GameObject.Find(this.name);
-       SkinnedMeshRenderer[] objects = category.transform.GetComponentsInChildren<SkinnedMeshRenderer>();
-       foreach (SkinnedMeshRenderer obj in objects)
+       if(category.transform.GetComponentInChildren<SkinnedMeshRenderer>())
        {
-            obj.enabled = !obj.enabled;
-            MeshCollider meshCollider = obj.GetComponent<MeshCollider>();
-            if (meshCollider != null)
-            {
-                meshCollider.enabled = obj.enabled;
-            }
-            ChangeColour(obj.enabled);
+            SkinnedMeshRenderer[] objects = category.transform.GetComponentsInChildren<SkinnedMeshRenderer>();
+            ToggleMesh(objects);
+       }
+       else
+       {
+            MeshRenderer[] objects = category.transform.GetComponentsInChildren<MeshRenderer>();
+            ToggleMesh(objects);
        }
        
+    }
+
+    void ToggleMesh(Renderer[] renderers)
+    {
+        foreach (var renderer in renderers)
+        {
+            renderer.enabled = !renderer.enabled;
+
+            MeshCollider meshCollider = renderer.GetComponent<MeshCollider>();
+            if (meshCollider != null)
+            {
+                meshCollider.enabled = renderer.enabled;
+            }
+
+            ChangeColour(renderer.enabled);
+        }
     }
 
     public void ChangeColour(bool state)
