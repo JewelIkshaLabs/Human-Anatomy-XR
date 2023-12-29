@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.XR;
 using UnityEngine.UI;
-using TMPro;
 
 public class PartsLister : MonoBehaviour
 {
@@ -21,6 +19,7 @@ public class PartsLister : MonoBehaviour
     };
     public List<string> _categories = new List<string>();
     public List<GameObject> _categoryGameObjects;
+    public List<Sprite> buttonImages;
     public GameObject _categoryPrefab;
     public GameObject _buttonPrefab;
     public Transform _contentTransform;
@@ -51,8 +50,13 @@ public class PartsLister : MonoBehaviour
             cat.name = kvp.Key;
             cat.transform.parent = parent;
             button.name = kvp.Key;
-            TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = kvp.Key;
+            foreach(Sprite buttonImage in buttonImages)
+            {
+                if(buttonImage.name == kvp.Key)
+                {
+                    button.GetComponent<Image>().sprite = buttonImage;
+                }
+            }
             button.transform.parent = contentTransform;
             _categoryGameObjects.Add(cat);
         }

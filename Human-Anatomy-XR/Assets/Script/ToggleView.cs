@@ -7,10 +7,11 @@ public class ToggleView : MonoBehaviour
 {
     public Color defaultColor;
     public Color updatedColor;
+    Image buttonImage;
     // Start is called before the first frame update
     void Start()
     {
-        
+        buttonImage = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -33,17 +34,15 @@ public class ToggleView : MonoBehaviour
 
     public void ChangeColour(bool state)
     {
-        Button button = GetComponent<Button>();
-        ColorBlock colors = button.colors;
-        Debug.Log(state);
-        if (state)
+        if(state)
         {
-            colors.normalColor = new Color(0, 0, 0); 
+            Color toggleColor = defaultColor;
+            buttonImage.color = toggleColor;
         }
         else
         {
-            colors.normalColor = new Color(10, 255, 5); 
+            Color toggleColor = updatedColor;
+            buttonImage.color = toggleColor;
         }
-        button.colors = colors;
     }
 }
