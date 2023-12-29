@@ -20,7 +20,6 @@ public class PartsLister : MonoBehaviour
     {
         ChildLister(_parts);
         PopulateCategoriesFromParts(_parts, transform, _contentTransform);
-        // ConsoleOutput();
         CreateGameObjects(_parts);
     }
 
@@ -30,6 +29,13 @@ public class PartsLister : MonoBehaviour
         {
             parts.Add(child.gameObject);
         }
+    }
+
+    public void LoadCase()
+    {
+        ChildLister(_parts);
+        PopulateCategoriesFromParts(_parts, transform, _contentTransform);
+        CreateGameObjects(_parts);
     }
 
     void PopulateCategoriesFromParts(List<GameObject> parts, Transform parent, Transform contentTransform)
