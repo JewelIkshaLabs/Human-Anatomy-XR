@@ -7,20 +7,20 @@ using UnityEngine.UI;
 
 public class PartsLister : MonoBehaviour
 {
-    public List<GameObject> _parts = new List<GameObject>();
-    public Dictionary<string, string> _categoriesMap = new Dictionary<string, string>();
-    public List<string> _categories = new List<string>();
-    public List<GameObject> _categoryGameObjects;
-    public List<Sprite> buttonImages;
+    [SerializeField] List<GameObject> _parts = new List<GameObject>();
+    [SerializeField] List<GameObject> _categoryGameObjects;
+    [SerializeField] List<Sprite> buttonImages;
     public GameObject _categoryPrefab;
     public GameObject _buttonPrefab;
-    public Transform _contentTransform;
+    [SerializeField] Transform _contentTransform;
 
     void Start()
     {
+        _contentTransform = GameObject.Find("Content").transform;
+        DeleteButtons();
         ChildLister(_parts);
         PopulateCategoriesFromParts(_parts, transform, _contentTransform);
-        CreateGameObjects(_parts);
+        GroupGameObjects(_parts);
     }
 
     void ChildLister(List<GameObject> parts)
@@ -33,9 +33,18 @@ public class PartsLister : MonoBehaviour
 
     public void LoadCase()
     {
+        DeleteButtons();
         ChildLister(_parts);
         PopulateCategoriesFromParts(_parts, transform, _contentTransform);
-        CreateGameObjects(_parts);
+        GroupGameObjects(_parts);
+    }
+
+    void DeleteButtons()
+    {
+        foreach(Transform child in _contentTransform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     void PopulateCategoriesFromParts(List<GameObject> parts, Transform parent, Transform contentTransform)
@@ -76,7 +85,7 @@ public class PartsLister : MonoBehaviour
 
     // Sorts the gameobjects into particular categories
 
-    void CreateGameObjects(List<GameObject> parts)
+    void GroupGameObjects(List<GameObject> parts)
     {
         foreach (GameObject part in parts)
         {
@@ -93,11 +102,4 @@ public class PartsLister : MonoBehaviour
         }
     }
 
-    void ConsoleOutput()
-    {
-        foreach(KeyValuePair<string,string> kvp in _categoriesMap)
-        {
-            Debug.Log(kvp);
-        }
-    }
 }

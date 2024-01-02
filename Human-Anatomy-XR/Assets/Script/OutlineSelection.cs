@@ -46,6 +46,7 @@ public class OutlineSelection : MonoBehaviour
         {
             if (highlight)
             {
+                Debug.Log(highlight.gameObject.name);
                 if (selection != null)
                 {
                     selection.gameObject.GetComponent<Outline>().enabled = false;

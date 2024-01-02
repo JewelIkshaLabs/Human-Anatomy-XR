@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateAroundObject : MonoBehaviour
 {
-    [SerializeField] Transform _kneeTransform;
+    public Transform _kneeTransform;
     [SerializeField] float _rotationSpeed;
 
     void Update()
