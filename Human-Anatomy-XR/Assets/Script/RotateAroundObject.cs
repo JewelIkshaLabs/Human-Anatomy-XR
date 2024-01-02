@@ -14,6 +14,6 @@ public class RotateAroundObject : MonoBehaviour
 
     void RotateAroundAny(Transform target)
     {
-        transform.RotateAround(target.position, Vector3.up, _rotationSpeed);
+        transform.RotateAround(target.position, Vector3.up, _rotationSpeed*Time.deltaTime);
     }
 }
