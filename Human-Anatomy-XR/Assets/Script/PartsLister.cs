@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PartsLister : MonoBehaviour
 {
-    [SerializeField] List<GameObject> _parts = new List<GameObject>();
+    public List<GameObject> _parts = new();
     [SerializeField] List<GameObject> _categoryGameObjects;
     [SerializeField] List<Sprite> buttonImages;
     public GameObject _categoryPrefab;
@@ -16,6 +16,7 @@ public class PartsLister : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 90;
         _contentTransform = GameObject.Find("Content").transform;
         DeleteButtons();
         ChildLister(_parts);
@@ -69,9 +70,7 @@ public class PartsLister : MonoBehaviour
             cat.transform.parent = parent;
             button.name = category;
             foreach (Sprite buttonImage in buttonImages)
-            {
-                Debug.Log("Catergory : " +  category);
-                Debug.Log("ButtonImageName : " + buttonImage.name);
+            {   
                 if (buttonImage.name == category)
                 {
                     button.GetComponent<Image>().sprite = buttonImage;

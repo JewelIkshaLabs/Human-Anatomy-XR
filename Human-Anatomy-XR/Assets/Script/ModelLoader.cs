@@ -5,26 +5,17 @@ using UnityEngine;
 public class ModelLoader : MonoBehaviour
 {
     public GameObject _modelToBeLoaded;
-    [SerializeField] Animator _modelViewAnimator;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  
     public void LoadModel()
     {
         UnloadModel();
-        _modelViewAnimator.SetTrigger("CloseDrawer");
+        Instantiate(_modelToBeLoaded);
+        ToggleViews.Instance._modelViewAnimator.SetTrigger("CloseDrawer");
         ToggleViews.Instance.animationState = false;
-        GameObject model = Instantiate(_modelToBeLoaded);
-        Camera.main.GetComponent<RotateAroundObject>()._kneeTransform = model.transform;
+        if(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"))
+        {
+            ToggleViews.Instance._categoryViewAnim.SetTrigger("OpenDrawer");
+        }
     }
 
     private void UnloadModel()

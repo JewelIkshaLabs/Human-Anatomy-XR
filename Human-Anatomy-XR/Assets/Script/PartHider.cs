@@ -51,6 +51,7 @@ public class PartHider : MonoBehaviour
         }
     }
 
+
     public void ChangeColor(bool state)
     {
         if(state)

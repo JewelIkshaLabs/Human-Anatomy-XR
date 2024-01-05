@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ToggleViews : MonoBehaviour
 {
     public static ToggleViews Instance;
-    [SerializeField] Animator _modelViewAnimator;
+    public Animator _modelViewAnimator;
+    public Animator _categoryViewAnim;
     public bool animationState;
     void Awake()
     {
@@ -23,5 +22,10 @@ public class ToggleViews : MonoBehaviour
         string triggerParams = animationState ? "CloseDrawer" : "OpenDrawer"; 
         _modelViewAnimator.SetTrigger(triggerParams);
         animationState = !animationState;
+    }
+
+    public bool MatchCurrentAnimationState(Animator animator, string animationName)
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName(animationName);
     }
 }
