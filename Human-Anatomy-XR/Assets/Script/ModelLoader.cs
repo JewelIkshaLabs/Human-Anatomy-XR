@@ -11,7 +11,6 @@ public class ModelLoader : MonoBehaviour
         UnloadModel();
         Instantiate(_modelToBeLoaded);
         ToggleViews.Instance._modelViewAnimator.SetTrigger("CloseDrawer");
-        ToggleViews.Instance.animationState = false;
         if(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"))
         {
             ToggleViews.Instance._categoryViewAnim.SetTrigger("OpenDrawer");
