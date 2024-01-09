@@ -92,7 +92,7 @@ public class OutlineSelection : MonoBehaviour
             part.GetComponent<Renderer>().enabled = false;
             part.GetComponent<Collider>().enabled = false;
         }
-        ToggleViews.Instance._categoryViewAnim.SetTrigger("CloseDrawer");
+        ToggleViews.RaiseOnCategoryViewStateChanged(false, null);
     }
 
     public void UnIsolatePart()
@@ -103,7 +103,7 @@ public class OutlineSelection : MonoBehaviour
             part.GetComponent<Renderer>().enabled = true;
             part.GetComponent<Collider>().enabled = true;
         }
-        ToggleViews.Instance._categoryViewAnim.SetTrigger("OpenDrawer");  
+        ToggleViews.RaiseOnCategoryViewStateChanged(true, null); 
     }
 
 }

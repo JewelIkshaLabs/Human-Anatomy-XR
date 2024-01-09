@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ModelLoader : MonoBehaviour
@@ -10,11 +8,8 @@ public class ModelLoader : MonoBehaviour
     {
         UnloadModel();
         Instantiate(_modelToBeLoaded);
-        ToggleViews.Instance._modelViewAnimator.SetTrigger("CloseDrawer");
-        if(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"))
-        {
-            ToggleViews.Instance._categoryViewAnim.SetTrigger("OpenDrawer");
-        }
+        ToggleViews.RaiseOnModelViewStateChanged(false);
+        ToggleViews.RaiseOnCategoryViewStateChanged(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"), "NoToggle");
     }
 
     private void UnloadModel()

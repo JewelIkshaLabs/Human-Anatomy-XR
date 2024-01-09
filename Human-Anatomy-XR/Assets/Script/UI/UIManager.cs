@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject gameObject;
+    [SerializeField] GameObject canvas;
     private CanvasScaler canvasScaler;
     void Start()
     {
-        canvasScaler = gameObject.GetComponent<CanvasScaler>();
+        canvasScaler = canvas.GetComponent<CanvasScaler>();
         Resolution[] resolutions = Screen.resolutions;
         foreach (var res in resolutions)
         {
