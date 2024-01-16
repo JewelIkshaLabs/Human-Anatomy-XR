@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
+[InitializeOnLoad]
 public class MaterialTracker : MonoBehaviour
 {
 
@@ -21,10 +23,21 @@ public class MaterialTracker : MonoBehaviour
     [Header("Cartilage")]
     [Space]
     public List<Material> cartilageMaterials = new();
+    [Header("Joint")]
+    [Space]
+    public List<Material> jointMaterials = new();
     public Dictionary<List<Material>, string> bodyMats;
-    void Awake()
+
+
+    MaterialTracker()
     {
-        if(Instance != null && Instance != this)
+        InitializeVariables();
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    void InitializeVariables()
+    {
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
             return;
@@ -37,7 +50,8 @@ public class MaterialTracker : MonoBehaviour
             {muscleMaterials, "_muscle"},
             {ligamentMaterials, "_ligament"},
             {tendonMaterials, "_tendon"},
-            {cartilageMaterials, "_cartilage"} 
+            {cartilageMaterials, "_cartilage"},
+            {jointMaterials, "_joint"}
         };
     }
 
