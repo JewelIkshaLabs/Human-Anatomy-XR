@@ -16,7 +16,7 @@ public class PartsLister : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 90;
+        Application.targetFrameRate = 60;
         _contentTransform = GameObject.Find("Content").transform;
         DeleteButtons();
         ChildLister(_parts);
@@ -26,10 +26,13 @@ public class PartsLister : MonoBehaviour
 
     void ChildLister(List<GameObject> parts)
     {
+        VoiceInput.parts = "";
         foreach(Transform child in transform)
         {
             parts.Add(child.gameObject);
+            VoiceInput.parts += child.gameObject.name + ",";
         }
+        Debug.Log(VoiceInput.parts);
     }
 
     public void LoadCase()
@@ -82,7 +85,7 @@ public class PartsLister : MonoBehaviour
         }
     }
 
-    // Sorts the gameobjects into particular categories
+    // Sorts the gameobjects into the respective category gameobjects
 
     void GroupGameObjects(List<GameObject> parts)
     {

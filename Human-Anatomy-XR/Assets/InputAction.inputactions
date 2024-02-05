@@ -1,0 +1,67 @@
+{
+    "name": "InputAction",
+    "maps": [
+        {
+            "name": "Action Map 1",
+            "id": "a0e47175-57cc-4cae-9926-919cc2b2cd1d",
+            "actions": [
+                {
+                    "name": "Orbitaround",
+                    "type": "Value",
+                    "id": "756b9d5d-3753-4c1b-9fe2-e3199c80b429",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "One Modifier",
+                    "id": "ae492a5e-24df-43bd-bad0-0df7dea1141a",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Orbitaround",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "e49b9a7e-3d33-46fb-8001-6b48416d241f",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Orbitaround",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "f8ee7781-4a7a-47b7-b8a0-6d1d1afc0b79",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Orbitaround",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "70ef7be2-c9cb-420a-913f-291228b31604",
+                    "path": "<Touchscreen>/primaryTouch/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Orbitaround",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

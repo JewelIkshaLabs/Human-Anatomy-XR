@@ -12,12 +12,51 @@ public class OutlineSelection : MonoBehaviour
     private RaycastHit raycastHit;
     public GameObject _selectedGameObject;
     private PartsLister _partsLister;
+    private VoiceInput voiceInput;
     [SerializeField] Button unIsolateButton;
+    private GameObject highlightGameobject;
 
+    void Start()
+    {
+        voiceInput = FindFirstObjectByType<VoiceInput>();
+    }
     void Update()
     {
         Highlight();
         Select();
+        HighlightFromSpeech();
+    }
+
+    void HighlightFromSpeech()
+    {
+        if (highlightGameobject != null || highlight != null)
+        {
+            try
+            {
+                highlightGameobject.GetComponent<Outline>().enabled = false;
+            }
+            catch {}
+            highlightGameobject = null;
+        }
+        highlightGameobject = GameObject.Find(VoiceInput.highlightString);
+        if(highlightGameobject != null && highlightGameobject.CompareTag("Selectable"))
+        {
+            if (highlightGameobject.GetComponent<Outline>() != null)
+            {
+                highlightGameobject.GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                Outline outline = highlightGameobject.AddComponent<Outline>();
+                outline.enabled = true;
+                highlightGameobject.GetComponent<Outline>().OutlineColor = Color.yellow;
+                highlightGameobject.GetComponent<Outline>().OutlineWidth = 10.0f;
+            }
+        }
+        else
+        {
+            highlightGameobject = null;
+        }
     }
 
     void Highlight()
@@ -64,7 +103,8 @@ public class OutlineSelection : MonoBehaviour
             {
                 Debug.Log(highlight.gameObject.name);
                 _selectedGameObject = highlight.gameObject;
-                IsolatePart(_selectedGameObject);
+                if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
+                if(!unIsolateButton.IsInteractable()) IsolatePart(_selectedGameObject);
                 unIsolateButton.interactable = true;
                 if (selection != null)
                 {

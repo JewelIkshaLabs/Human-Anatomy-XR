@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using Samples.Whisper;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.IO;
+using UnityEngine.UI;
+using System;
 
 public class VoiceInput : MonoBehaviour
 {
     public List<string> microphoneNames = new();
     public AudioSource audioSource;
-    AudioClip microphoneClip;
     public AudioClip audioFile;
-    private readonly string fileName = "output.wav";
+    public static string highlightString;
+    public static string parts;
+    public GameObject micButton;
+    AudioClip microphoneClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,37 +23,111 @@ public class VoiceInput : MonoBehaviour
         {
             microphoneNames.Add(device);
         }
-        // Debug.Log(Directory.GetFiles(Application.persistentDataPath, "*")[0]);
-        StartCoroutine(PostRequest(Directory.GetFiles(Application.persistentDataPath, "*")[0]));
+        Debug.Log(Directory.GetFiles(Application.persistentDataPath, "*")[0]);
+        // SaveWav.Save("converted", audioFile);
+        // StartCoroutine(PostRequest(Directory.GetFiles(Application.persistentDataPath, "*")[0]));
         // Record();
-        // StartCoroutine(Play());
+        // StartCoroutine(Play());  
     }
+
+    void Update()
+    {
+        if(Microphone.IsRecording(microphoneNames[0]))
+        {
+            micButton.GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            micButton.GetComponent<Image>().color = Color.white;
+        }   
+    }
+
+    public void InvokeMicAction()
+    {
+        bool isRecording = Microphone.IsRecording(microphoneNames[0]);
+
+        if(isRecording)
+        {
+            StopRecording(); 
+        } 
+        else
+        {
+            Record();
+        }
+    }
+
     void Record()
     {
-        microphoneClip = Microphone.Start(microphoneNames[0], false, 5, AudioSettings.outputSampleRate);
+        microphoneClip = Microphone.Start(microphoneNames[0], false, 10, AudioSettings.outputSampleRate);
+        Debug.Log("Recording...");
+        StartCoroutine(WaitForRecording()); 
     }
 
-    IEnumerator Play()
+    void StopRecording()
     {
-        yield return new WaitForSeconds(6);
-        audioSource.PlayOneShot(microphoneClip);
-        byte[] data = SaveWav.Save(fileName, microphoneClip);
-        string dataString = data.Aggregate(new StringBuilder(), (sb, b)=>sb.AppendFormat("{0:x2} ", b), sb=>sb.AppendFormat("({0})", data.Length).ToString());
-        Debug.Log(dataString);
+        Microphone.End(microphoneNames[0]);
+        Debug.Log("Recording Stopped...");
+        CallAPI();
     }
 
-    IEnumerator PostRequest(string filePath)
+    IEnumerator WaitForRecording()
+    {
+        yield return new WaitForEndOfFrame();
+
+        while(Microphone.IsRecording(microphoneNames[0])) yield return null;
+    }
+
+    void CallAPI()
+    {
+        SavWav.Save("converted.wav",microphoneClip);
+        StartCoroutine(PostRequest(Directory.GetFiles(Application.persistentDataPath, "*")[0],""));
+        // StartCoroutine(PostRequest(audio_data,""));
+    }
+
+    private byte[] ConvertAndWrite (AudioClip clip, int bitRate)
+    {
+    
+        float[] samples = new float[clip.samples];
+    
+        clip.GetData (samples, 0);
+    
+        Debug.Log(samples.Length);
+    
+        Int16[] intData = new Int16[samples.Length];
+        //converting in 2 float[] steps to Int16[], //then Int16[] to Byte[]
+    
+        Byte[] bytesData = new Byte[samples.Length * 2];
+        //bytesData array is twice the size of
+        //dataSource array because a float converted in Int16 is 2 bytes.
+    
+        float rescaleFactor = 32767; //to convert float to Int16
+    
+        for (int i = 0; i < samples.Length; i++) {
+            intData[i] = (short)(samples[i] * rescaleFactor);
+            Byte[] byteArr = new Byte[2];
+            byteArr = BitConverter.GetBytes(intData[i]);
+            byteArr.CopyTo(bytesData, i * 2);
+        }
+
+        return bytesData;
+    }
+
+    public IEnumerator PostRequest(string path, string question)
     {
         string url = "http://localhost:8080/listen1";
 
         WWWForm form = new();
 
-        // Load the file as a byte array
-        byte[] fileData = System.IO.File.ReadAllBytes(filePath);
-
         // Add the file data to the form
-        form.AddBinaryData("audio", fileData, "audio.wav", "audio/mp3");
-
+        if(path != "") 
+        {
+            byte[] fileData = File.ReadAllBytes(path);
+            form.AddBinaryData("audio", fileData, "audio.wav", "audio/mp3");
+        }
+        else if(question != "") form.AddField("question", question);
+        form.AddField("Mp3Path", Application.persistentDataPath);
+        form.AddField("parts", parts);
+        
         // Create a UnityWebRequest and send the form
         UnityWebRequest www = UnityWebRequest.Post(url, form);
 
@@ -59,11 +135,18 @@ public class VoiceInput : MonoBehaviour
 
         if(www.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log(www.downloadHandler.text);
+            // AudioClip audioClip = WavUtility.ToAudioClip($"{Application.persistentDataPath}/response.wav");
+            try{
+                AudioClip audioClip = WavUtility.ToAudioClip(www.downloadHandler.data, 0, "wav");
+                audioSource.PlayOneShot(audioClip);
+            }
+            catch {}
+            highlightString = www.downloadHandler.text;
         }
         else
         {
             Debug.LogError(www.error);
         }
     }
+
 }

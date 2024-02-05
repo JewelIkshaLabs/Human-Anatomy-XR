@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class RotateAroundObject : MonoBehaviour
 {
@@ -10,10 +9,24 @@ public class RotateAroundObject : MonoBehaviour
     [SerializeField] float _orbitSpeed;
     [SerializeField] Scrollbar _scrollbar_Horizontal;
     [SerializeField] Scrollbar _scrollbar_Vertical;
+    [SerializeField] InputActionReference orbitActionReference;
+    InputAction _orbitAction;
+
+    void OnEnable()
+    {
+        _orbitAction = orbitActionReference.action.Clone();
+        _orbitAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        _orbitAction.Dispose();
+        _orbitAction = null;
+    }
 
     void Update()
     {
-        DoOrbit(ScrollValue()); 
+        DoOrbit(_orbitAction.ReadValue<Vector2>()); 
     }
 
     void RotateAroundAny(Vector3 target)
