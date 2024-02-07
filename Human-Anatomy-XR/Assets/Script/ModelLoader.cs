@@ -8,8 +8,8 @@ public class ModelLoader : MonoBehaviour
     {
         UnloadModel();
         Instantiate(_modelToBeLoaded);
-        ToggleViews.RaiseOnModelViewStateChanged(false);
-        ToggleViews.RaiseOnCategoryViewStateChanged(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"), "NoToggle");
+        // ToggleViews.RaiseOnModelViewStateChanged(false);
+        // ToggleViews.RaiseOnCategoryViewStateChanged(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"), "NoToggle");
     }
 
     private void UnloadModel()

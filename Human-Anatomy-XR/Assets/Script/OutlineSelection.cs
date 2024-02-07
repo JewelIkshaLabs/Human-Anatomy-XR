@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class OutlineSelection : MonoBehaviour
 {
@@ -15,15 +18,31 @@ public class OutlineSelection : MonoBehaviour
     private VoiceInput voiceInput;
     [SerializeField] Button unIsolateButton;
     private GameObject highlightGameobject;
+    public GameObject XRPointer;
+    [SerializeField] float triggerInput;
+    bool isPressed = false;
 
     void Start()
     {
         voiceInput = FindFirstObjectByType<VoiceInput>();
     }
+
     void Update()
     {
         Highlight();
-        Select();
+        // Select();
+        triggerInput = Input.GetAxis("Trigger");
+        if(triggerInput == 1 && !isPressed) 
+        {
+            Debug.Log("Pressed!");
+            isPressed = true;
+        }
+        else if(triggerInput == 0 && isPressed)
+        {
+            Debug.Log("UnPressed");
+            isPressed = false;
+            Select();
+        }
         HighlightFromSpeech();
     }
 
@@ -67,8 +86,12 @@ public class OutlineSelection : MonoBehaviour
             highlight.gameObject.GetComponent<Outline>().enabled = false;
             highlight = null;
         }
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) //Make sure you have EventSystem in the hierarchy before using EventSystem
+        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 controllerPos = XRPointer.transform.position;
+        Vector3 controllerDir = XRPointer.transform.forward;
+
+        Ray ray = new Ray(controllerPos,controllerDir);
+        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) // Make sure you have EventSystem in the hierarchy before using EventSystem
         {
             highlight = raycastHit.transform;
             if (highlight.CompareTag("Selectable") && highlight != selection)
@@ -94,31 +117,26 @@ public class OutlineSelection : MonoBehaviour
 
     void Select()
     {
-
         // Selection
-
-        if (Input.GetMouseButtonDown(0))
+        if (highlight)
         {
-            if (highlight)
-            {
-                Debug.Log(highlight.gameObject.name);
-                _selectedGameObject = highlight.gameObject;
-                if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
-                if(!unIsolateButton.IsInteractable()) IsolatePart(_selectedGameObject);
-                unIsolateButton.interactable = true;
-                if (selection != null)
-                {
-                    selection.gameObject.GetComponent<Outline>().enabled = false;
-                }
-                selection = raycastHit.transform;
-                selection.gameObject.GetComponent<Outline>().enabled = true;
-                highlight = null;
-            }
-            else if (selection)
+            Debug.Log(highlight.gameObject.name);
+            _selectedGameObject = highlight.gameObject;
+            if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
+            if(!unIsolateButton.IsInteractable()) IsolatePart(_selectedGameObject);
+            unIsolateButton.interactable = true;
+            if (selection != null)
             {
                 selection.gameObject.GetComponent<Outline>().enabled = false;
-                selection = null;
             }
+            selection = raycastHit.transform;
+            selection.gameObject.GetComponent<Outline>().enabled = true;
+            highlight = null;
+        }
+        else if (selection)
+        {
+            selection.gameObject.GetComponent<Outline>().enabled = false;
+            selection = null;
         }
     }
 
@@ -132,7 +150,7 @@ public class OutlineSelection : MonoBehaviour
             part.GetComponent<Renderer>().enabled = false;
             part.GetComponent<Collider>().enabled = false;
         }
-        ToggleViews.RaiseOnCategoryViewStateChanged(false, null);
+        // ToggleViews.RaiseOnCategoryViewStateChanged(false, null);
     }
 
     public void UnIsolatePart()
@@ -143,7 +161,7 @@ public class OutlineSelection : MonoBehaviour
             part.GetComponent<Renderer>().enabled = true;
             part.GetComponent<Collider>().enabled = true;
         }
-        ToggleViews.RaiseOnCategoryViewStateChanged(true, null); 
+        // ToggleViews.RaiseOnCategoryViewStateChanged(true, null); 
     }
 
 }

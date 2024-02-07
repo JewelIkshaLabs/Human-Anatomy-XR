@@ -68,7 +68,7 @@ public class PartsLister : MonoBehaviour
         foreach (string category in categories)
         {
             GameObject cat = Instantiate(_categoryPrefab);
-            GameObject button = Instantiate(_buttonPrefab);
+            GameObject button = Instantiate(_buttonPrefab, contentTransform);
             cat.name = category;
             cat.transform.parent = parent;
             button.name = category;
@@ -80,7 +80,6 @@ public class PartsLister : MonoBehaviour
                     break;
                 }
             }
-            button.transform.parent = contentTransform;
             _categoryGameObjects.Add(cat);
         }
     }
