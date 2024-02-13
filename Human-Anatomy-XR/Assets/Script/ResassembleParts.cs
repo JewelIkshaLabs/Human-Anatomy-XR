@@ -14,7 +14,7 @@ public class ResassembleParts : MonoBehaviour
             for(int i = 0; i < parts.Count; i++)
             {
                 parts[i].transform.DOMove(partsPos[i],3,false);
-                parts[i].transform.rotation = partsRot[i];
+                parts[i].transform.DORotateQuaternion(partsRot[i], 3);
             }
         }
     }

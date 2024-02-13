@@ -136,7 +136,10 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: fc8254e38a7959e47a4e60eb0faeb1b7, type: 2}
+  - {fileID: 6768327013534168882, guid: 370b0a183d0f4974c856b06ccf5622c1, type: 2}
+  - {fileID: 11400000, guid: 2419770dca7bbb0479a47e22fe84a76c, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -157,6 +160,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.IkshaLabs.HumanAnatomyXR
     Standalone: com.IkshaLabs.Human-Anatomy-XR
   buildNumber:
     Standalone: 0
@@ -847,7 +851,8 @@ PlayerSettings:
     tvOS: UNITY_POST_PROCESSING_STACK_V2
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel:

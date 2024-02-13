@@ -9,24 +9,24 @@ public class RotateAroundObject : MonoBehaviour
     [SerializeField] float _orbitSpeed;
     [SerializeField] Scrollbar _scrollbar_Horizontal;
     [SerializeField] Scrollbar _scrollbar_Vertical;
-    [SerializeField] InputActionReference orbitActionReference;
-    InputAction _orbitAction;
+    // [SerializeField] InputActionReference orbitActionReference;
+    // InputAction _orbitAction;
 
-    void OnEnable()
-    {
-        _orbitAction = orbitActionReference.action.Clone();
-        _orbitAction.Enable();
-    }
+    // void OnEnable()
+    // {
+    //     _orbitAction = orbitActionReference.action.Clone();
+    //     _orbitAction.Enable();
+    // }
 
-    void OnDisable()
-    {
-        _orbitAction.Dispose();
-        _orbitAction = null;
-    }
+    // void OnDisable()
+    // {
+    //     _orbitAction.Dispose();
+    //     _orbitAction = null;
+    // }
 
     void Update()
     {
-        DoOrbit(_orbitAction.ReadValue<Vector2>()); 
+        DoOrbit1(ScrollValue()); 
     }
 
     void RotateAroundAny(Vector3 target)
@@ -42,13 +42,20 @@ public class RotateAroundObject : MonoBehaviour
         return scrollValues;
     }
 
+    void DoOrbit1(Vector2 delta)
+    {
+        transform.Rotate(Vector3.down, delta.x);
+        transform.Rotate(Vector3.left, delta.y);
+    }
+
     void DoOrbit(Vector2 delta)
     {
+        _orbitCenter = transform.position;
 		Vector3 focusPosition = _orbitCenter;
 
 		var camPosition = transform.position;
 
-		var focusToCam = camPosition - focusPosition;
+		var focusToCam = focusPosition;
 		float focusDistance = focusToCam.magnitude;
 
 		float distanceH = new Vector2(focusToCam.x, focusToCam.z).magnitude;

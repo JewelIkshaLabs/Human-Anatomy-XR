@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ModelLoader : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ModelLoader : MonoBehaviour
     {
         UnloadModel();
         Instantiate(_modelToBeLoaded);
+        GameObject.Find("UnIsolatePartsButton").GetComponent<Button>().interactable = false;
         // ToggleViews.RaiseOnModelViewStateChanged(false);
         // ToggleViews.RaiseOnCategoryViewStateChanged(!ToggleViews.Instance.MatchCurrentAnimationState(ToggleViews.Instance._categoryViewAnim ,"Open_Category_Drawer"), "NoToggle");
     }
