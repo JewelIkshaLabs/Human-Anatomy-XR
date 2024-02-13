@@ -3,7 +3,7 @@ using UnityEngine;
 public class ModelLoader : MonoBehaviour
 {
     public GameObject _modelToBeLoaded;
-  
+
     public void LoadModel()
     {
         UnloadModel();

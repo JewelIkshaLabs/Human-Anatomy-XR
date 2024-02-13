@@ -1,13 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PartsLister : MonoBehaviour
 {
     public List<GameObject> _parts = new();
+    public List<Vector3> _partsPosition;
+    public List<Quaternion> _partsRotation;
     [SerializeField] List<GameObject> _categoryGameObjects;
     [SerializeField] List<Sprite> buttonImages;
     public GameObject _categoryPrefab;
@@ -30,6 +30,8 @@ public class PartsLister : MonoBehaviour
         foreach(Transform child in transform)
         {
             parts.Add(child.gameObject);
+            _partsPosition.Add(child.position);
+            _partsRotation.Add(child.rotation);
             VoiceInput.parts += child.gameObject.name + ",";
         }
         Debug.Log(VoiceInput.parts);
