@@ -114,6 +114,8 @@ public class VoiceInput : MonoBehaviour
 
     public IEnumerator PostRequest(string path, string question)
     {
+        PartDetails.Instance.describeButton.interactable = false;
+        PartDetails.Instance.loadingIcon.SetActive(true);
         string url = "http://localhost:8080/listen1";
 
         WWWForm form = new();
@@ -142,11 +144,14 @@ public class VoiceInput : MonoBehaviour
             }
             catch {}
             highlightString = www.downloadHandler.text;
+
         }
         else
         {
             Debug.LogError(www.error);
         }
+        PartDetails.Instance.describeButton.interactable = true;
+        PartDetails.Instance.loadingIcon.SetActive(false);
     }
 
 }

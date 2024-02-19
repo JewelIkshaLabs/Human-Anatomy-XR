@@ -13,7 +13,7 @@ public class OutlineSelection : MonoBehaviour
     private Transform highlight;
     private Transform selection;
     private RaycastHit raycastHit;
-    public GameObject _selectedGameObject;
+    public static GameObject _selectedGameObject;
     private PartsLister _partsLister;
     private VoiceInput voiceInput;
     [SerializeField] Button unIsolateButton;
@@ -122,8 +122,8 @@ public class OutlineSelection : MonoBehaviour
         {
             Debug.Log(highlight.gameObject.name);
             _selectedGameObject = highlight.gameObject;
-            if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
-            if(!unIsolateButton.IsInteractable()) IsolatePart(_selectedGameObject);
+            // if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
+            IsolatePart(_selectedGameObject);
             unIsolateButton.interactable = true;
             if (selection != null)
             {
@@ -150,6 +150,7 @@ public class OutlineSelection : MonoBehaviour
             part.GetComponent<Renderer>().enabled = false;
             part.GetComponent<Collider>().enabled = false;
         }
+        PartDetails.Instance.UpdateName(selectedGameobject);
         // ToggleViews.RaiseOnCategoryViewStateChanged(false, null);
     }
 

@@ -8,6 +8,8 @@ public class ToggleViews : MonoBehaviour
     public Animator _categoryViewAnim;
     public static event UnityAction<bool> OnModelViewStateChanged;
     public static event UnityAction<bool, string> OnCategoryViewStateChanged;
+    [SerializeField] GameObject xrCamera;
+    [SerializeField] GameObject mainMenu;
     // public static void RaiseOnModelViewStateChanged(bool state) => OnModelViewStateChanged?.Invoke(state);
     // public static void RaiseOnCategoryViewStateChanged(bool state, string id) => OnCategoryViewStateChanged?.Invoke(state, id);
     void Awake()
@@ -20,6 +22,12 @@ public class ToggleViews : MonoBehaviour
 
         Instance = this;
     }
+
+    void Start()
+    {
+        
+    }
+
 
     // public void ToggleModelView()
     // {
