@@ -886,7 +886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &281611183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -902,10 +902,10 @@ RectTransform:
   - {fileID: 1973755647}
   m_Father: {fileID: 871526297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -610}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281611184
 MonoBehaviour:
@@ -968,18 +968,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ModelLoader, Assembly-CSharp
         m_MethodName: LoadModel
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 386796035}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4723,7 +4711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000022888184, y: 0.0015048058}
+  m_AnchoredPosition: {x: -0.000022888184, y: -0.0008345986}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &871526298
@@ -4958,7 +4946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000022888184, y: 0.0021552315}
+  m_AnchoredPosition: {x: -0.000022888184, y: 0.00087268406}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &917156423
@@ -6142,7 +6130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1151610435
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6158,10 +6146,10 @@ RectTransform:
   - {fileID: 1334891365}
   m_Father: {fileID: 871526297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -370}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1151610436
 MonoBehaviour:
@@ -6211,18 +6199,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ModelLoader, Assembly-CSharp
         m_MethodName: LoadModel
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 386796035}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7764,8 +7740,8 @@ MonoBehaviour:
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_AllowHoverAudioWhileSelecting: 1
   m_PlayHapticsOnSelectEntered: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
+  m_HapticSelectEnterIntensity: 0.5
+  m_HapticSelectEnterDuration: 0.1
   m_PlayHapticsOnSelectExited: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -7773,8 +7749,8 @@ MonoBehaviour:
   m_HapticSelectCancelIntensity: 0
   m_HapticSelectCancelDuration: 0
   m_PlayHapticsOnHoverEntered: 0
-  m_HapticHoverEnterIntensity: 0
-  m_HapticHoverEnterDuration: 0
+  m_HapticHoverEnterIntensity: 0.1
+  m_HapticHoverEnterDuration: 0.1
   m_PlayHapticsOnHoverExited: 0
   m_HapticHoverExitIntensity: 0
   m_HapticHoverExitDuration: 0
@@ -8916,6 +8892,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509273019}
+  - component: {fileID: 1509273021}
+  - component: {fileID: 1509273020}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -8932,7 +8910,7 @@ Transform:
   m_GameObject: {fileID: 1509273018}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.53643024, z: -0, w: 0.8439447}
-  m_LocalPosition: {x: -0.347, y: 3.51, z: -5.541}
+  m_LocalPosition: {x: -0.347, y: 3.51, z: -2.23}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9004,6 +8982,39 @@ Transform:
   - {fileID: 1450445143}
   m_Father: {fileID: 1204743732}
   m_LocalEulerAnglesHint: {x: 0, y: -64.882, z: 0}
+--- !u!114 &1509273020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509273018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a764fd19a26de4794b8dae353bbca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1509273021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509273018}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 18.17, y: 3.589706, z: 14.700859}
+  m_Center: {x: 0.000000042115033, y: 0.26985288, z: -1.7045698}
 --- !u!1 &1530906705
 GameObject:
   m_ObjectHideFlags: 0
@@ -11509,6 +11520,7 @@ GameObject:
   - component: {fileID: 2011722858}
   - component: {fileID: 2011722857}
   - component: {fileID: 2011722856}
+  - component: {fileID: 2011722863}
   - component: {fileID: 2011722862}
   m_Layer: 0
   m_Name: Cube
@@ -11715,8 +11727,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 10.71, z: 1}
+  m_Center: {x: 0, y: -4.9, z: 86.24}
 --- !u!23 &2011722859
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11803,6 +11815,18 @@ LookAtConstraint:
   m_Sources:
   - sourceTransform: {fileID: 959546450}
     weight: 1
+--- !u!114 &2011722863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011722855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82780bd14c2837f478e8dfa764520d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029009696
 GameObject:
   m_ObjectHideFlags: 0
@@ -12588,7 +12612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6848494238311307889, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_Pivot.x
@@ -12604,7 +12628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_AnchorMin.x
@@ -12612,15 +12636,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12652,11 +12676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -130
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461945104450383085, guid: 170f4cf17be11b5429e135c928a71f3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

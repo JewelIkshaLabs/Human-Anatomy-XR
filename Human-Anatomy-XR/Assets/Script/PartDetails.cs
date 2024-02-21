@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class PartDetails : MonoBehaviour
 {
     public static PartDetails Instance;
-    public Button describeButton;
     public GameObject loadingIcon;
+    public TextMeshProUGUI description;
     [SerializeField] TextMeshProUGUI partName;
     [SerializeField] GameObject model;
     [SerializeField] GameObject optionsPanel;

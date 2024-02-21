@@ -5,6 +5,14 @@ using UnityEngine.Networking;
 using System.IO;
 using UnityEngine.UI;
 using System;
+using System.Text;
+
+[Serializable]
+public class MyData 
+{
+    public string speech;
+    public string text;
+}
 
 public class VoiceInput : MonoBehaviour
 {
@@ -114,7 +122,6 @@ public class VoiceInput : MonoBehaviour
 
     public IEnumerator PostRequest(string path, string question)
     {
-        PartDetails.Instance.describeButton.interactable = false;
         PartDetails.Instance.loadingIcon.SetActive(true);
         string url = "http://localhost:8080/listen1";
 
@@ -139,19 +146,32 @@ public class VoiceInput : MonoBehaviour
         {
             // AudioClip audioClip = WavUtility.ToAudioClip($"{Application.persistentDataPath}/response.wav");
             try{
-                AudioClip audioClip = WavUtility.ToAudioClip(www.downloadHandler.data, 0, "wav");
+                string jsonText = www.downloadHandler.text;
+                MyData data = JsonUtility.FromJson<MyData>(jsonText);
+                byte[] receivedByteArray = Convert.FromBase64String(data.speech);
+                AudioClip audioClip = WavUtility.ToAudioClip(receivedByteArray, 0, "wav");
                 audioSource.PlayOneShot(audioClip);
+                StartCoroutine(WriteText(data.text));
+                highlightString = data.text;
             }
             catch {}
-            highlightString = www.downloadHandler.text;
 
         }
         else
         {
             Debug.LogError(www.error);
         }
-        PartDetails.Instance.describeButton.interactable = true;
         PartDetails.Instance.loadingIcon.SetActive(false);
+    }
+
+    IEnumerator WriteText(string textData)
+    {
+        PartDetails.Instance.description.text = "";
+        foreach(char letter in textData)
+        {
+            PartDetails.Instance.description.text += letter;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
 }

@@ -122,7 +122,7 @@ public class OutlineSelection : MonoBehaviour
         {
             Debug.Log(highlight.gameObject.name);
             _selectedGameObject = highlight.gameObject;
-            // if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
+            if(!voiceInput.audioSource.isPlaying) StartCoroutine(voiceInput.PostRequest("",$"Tell me about {_selectedGameObject.name} in 10 words"));
             IsolatePart(_selectedGameObject);
             unIsolateButton.interactable = true;
             if (selection != null)
